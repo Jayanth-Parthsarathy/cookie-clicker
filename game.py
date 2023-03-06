@@ -9,24 +9,6 @@ chrome_options.add_experimental_option("detach", True)
 timeout = time.time() + 60*5
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), chrome_options=chrome_options)
 driver.get("http://orteil.dashnet.org/experiments/cookie/")
-def clicker(item):
-    if item==15:
-        item_to_click = driver.find_element(By.ID, 'buyCursor') 
-    elif item==100:
-        item_to_click = driver.find_element(By.ID, 'buyGrandma')
-    elif item==500:
-        item_to_click = driver.find_element(By.ID, 'buyFactory')
-    elif item==2000:
-        item_to_click = driver.find_element(By.ID, 'buyMine')
-    elif item==7000:
-        item_to_click = driver.find_element(By.ID, 'buyShipment')
-    elif item==50000:
-        item_to_click = driver.find_element(By.ID, 'buyAlchemy lab')
-    elif item==100000:
-        item_to_click = driver.find_element(By.ID, 'buyTime machine')
-    else:
-        item_to_click = driver.find_element(By.ID, 'buyCursor')
-    return item_to_click
 items = driver.find_elements(By.CSS_SELECTOR, "#store div")
 item_ids = [item.get_attribute("id") for item in items]
 time_check = time.time()+5
